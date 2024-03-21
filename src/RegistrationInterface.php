@@ -6,8 +6,5 @@ use Barnacle\Container;
 
 interface RegistrationInterface
 {
-    /**
-     * @param Container $c
-     */
-    public function addToContainer(Container $c);
+    public function addToContainer(Container $c): void;
 }
