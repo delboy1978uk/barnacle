@@ -2,11 +2,7 @@
 
 namespace Barnacle;
 
-use Bone\Contracts\Container\ContainerInterface;
-use Bone\Contracts\Container\RegistrationInterface as Registration;
-
-/** @deprecated use boneframework/contracts interface instead */
-interface RegistrationInterface extends Registration
+interface RegistrationInterface
 {
-    public function addToContainer(ContainerInterface $c): void;
+    public function addToContainer(Container $c): void;
 }
