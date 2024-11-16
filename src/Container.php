@@ -1,41 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Barnacle;
 
 use Barnacle\Exception\ContainerException;
 use Barnacle\Exception\NotFoundException;
+use Bone\Contracts\Container\ContainerInterface;
 use Exception;
 use Pimple\Container as Pimple;
 use Pimple\Exception\UnknownIdentifierException;
-use Psr\Container\ContainerInterface;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 
-/**
- *  Class Container
- *  Pirate DIC
- *
- * @package Bone
- */
 class Container extends Pimple implements ContainerInterface
 {
-
-
     /**
-     * Finds an entry of the container by its identifier and returns it.
-     *
-     * @param string $id Identifier of the entry to look for.
-     *
-     * @return mixed Entry.
-     * @throws ContainerExceptionInterface Error while retrieving the entry.
-     *
-     * @throws NotFoundExceptionInterface  No entry was found for **this** identifier.
+     * @throws ContainerException
+     * @throws NotFoundException
      */
-    public function get($id)
+    public function get(string $id): mixed
     {
         try {
-            $item = $this->offsetGet($id);
-            return $item;
+            return $this->offsetGet($id);
         } catch (UnknownIdentifierException $e) {
             throw new NotFoundException("Key $id not found.");
         } catch (Exception $e) {
@@ -43,20 +28,8 @@ class Container extends Pimple implements ContainerInterface
         }
     }
 
-    /**
-     * Returns true if the container can return an entry for the given identifier.
-     * Returns false otherwise.
-     *
-     * `has($id)` returning true does not mean that `get($id)` will not throw an exception.
-     * It does however mean that `get($id)` will not throw a `NotFoundExceptionInterface`.
-     *
-     * @param string $id Identifier of the entry to look for.
-     *
-     * @return bool
-     */
-    public function has($id)
+    public function has(string $id): bool
     {
         return $this->offsetExists($id);
     }
-
 }

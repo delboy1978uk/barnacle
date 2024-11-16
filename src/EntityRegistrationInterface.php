@@ -2,10 +2,10 @@
 
 namespace Barnacle;
 
-interface EntityRegistrationInterface
+use Bone\Contracts\Container\EntityRegistrationInterface as EntityRegistration;
+
+/** @deprecated use boneframework/contracts interface instead */
+interface EntityRegistrationInterface extends EntityRegistration
 {
-    /**
-     * @return string
-     */
     public function getEntityPath(): string;
 }

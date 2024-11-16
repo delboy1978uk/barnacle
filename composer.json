@@ -15,14 +15,12 @@
     }
   ],
   "require": {
-    "php": ">=5.3.0",
-    "psr/container": "^1.0",
-    "pimple/pimple": "^3.2"
+    "php": ">8.2",
+    "pimple/pimple": "^3.2",
+    "boneframework/contracts": "^1.0"
   },
   "require-dev": {
-    "codeception/codeception": "^4.1",
-    "roave/security-advisories": "dev-master",
-    "codeception/module-asserts": "^2.0"
+    "roave/security-advisories": "dev-latest"
   },
   "autoload": {
     "psr-4": {
