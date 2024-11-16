@@ -4,5 +4,5 @@ namespace Barnacle;
 
 interface RegistrationInterface
 {
-    public function addToContainer(Container $c): void;
+    public function addToContainer(Container $c);
 }
