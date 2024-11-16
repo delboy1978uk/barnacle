@@ -20,7 +20,8 @@
     "boneframework/contracts": "^1.0"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "delboy1978uk/dev-tools": "v1.0.5"
   },
   "autoload": {
     "psr-4": {
