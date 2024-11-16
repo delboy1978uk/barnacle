@@ -37,6 +37,9 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      - name: Where are we?
+        run: ls -la
+
       - name: Run test suite with coverage
         run: XDEBUG_MODE=coverage vendor/bin/codecept run unit --coverage-xml
 
